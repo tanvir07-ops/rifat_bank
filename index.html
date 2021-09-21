@@ -13,9 +13,9 @@
         <h1 class="text-center">Welcome to Rifat's Bank</h1>
         <div class="submit-area">
             <h4>Login</h4>
-            <input type="text" class="form-control" placeholder="Email">
+            <input id = "email-field" type="email" class="form-control" placeholder="Email">
             <br>
-            <input type="password" class="form-control" placeholder="Password">
+            <input id = "password-field" type="password" class="form-control" placeholder="Password">
             <br>
             <button id="login" class="btn btn-success">Enter</button>
         </div>
@@ -62,12 +62,23 @@
     </div>
     <script>
         // login button event handler
+        const emailField = document.getElementById("email-field");
+        const passwordField = document.getElementById("password-field");
         const loginBtn = document.getElementById("login");
+
         loginBtn.addEventListener("click", function(){
+
+           if(emailField.value == "" && passwordField.value == ""){
+               alert("please fill this field!");
+           }
+           else{
             const loginArea = document.getElementById("login-area");
             loginArea.style.display = "none";
             const transactionArea = document.getElementById("transaction-area");
             transactionArea.style.display = "block";
+           }
+
+          
         })
 
         //deposit button event handler
